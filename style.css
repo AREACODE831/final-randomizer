@@ -1,0 +1,26 @@
+html, body {
+  margin: 0;
+  padding: 0;
+}
+canvas {
+  display: block;
+}
+
+
+.randomizerButton {
+  padding: 20px;
+  background-color:#4EA4D9;
+  }
+
+.buttonFont {
+
+}
+
+.row {
+  display: flex;
+}
+
+.column {
+  margin: 10px;
+  flex: 50%;
+}
