@@ -81,7 +81,7 @@ let firstTime = true;
 function preload() {
   //'assets/cat_${i}.jpeg'
   for (let i = 0; i <= 7; i++) {
-    cats[i] = loadImage("assets/cat_" + i + ".png")
+    cats[i] = loadImage("assets/st_" + i + ".png")
   }
 }
 
