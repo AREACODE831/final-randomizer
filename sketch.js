@@ -87,7 +87,7 @@ function preload() {
 
 
 function setup() {
-  cv = createCanvas(500, 500);
+  cv = createCanvas(1000, 1000);
   cv.parent("#canvasDiv");
   //#=css refrence to id, .=class
 
