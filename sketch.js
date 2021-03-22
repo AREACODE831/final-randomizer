@@ -1,13 +1,13 @@
 
-//legendary
-//features
-
 let names = [{
   name: "Unicorn",
   word: "dazzling horse with a spiraling horn"
 }, {
+  name: "Hatchi",
+  word: "blughgh",
+}, {
   name: "Valkyrie",
-  word: "love you"
+  word: "love you",
 }, {
   name: "Ittan-momen",
   word: "sentiment roll of cotton that files through the night and suffocates people"
@@ -33,182 +33,86 @@ let names = [{
   name: "Santelmo",
   word: "spiritual presence in the form of a dancing orb of flame"
 }, {
-  name: "Lollipop",
+  name: "Androsphinx",
   word: "chao"
 }];
 
 
-
 let randomIndex;
-let randomIndex2;
-// let inconsolata;
-// function preload() {
-//   inconsolata = loadFont('assets/inconsolata.otf');
-// }
-
-let animating = false;
-let cats = [];
-let imageCounter = 0;
-let startRadomizerbutton;
-let addMoreButton;
 let cv;
-let nameInputs = [];
-let firstTime = true;
+let rButton;
+let clouds = [];
 
 
+let rc = 50;
+let gc = 120;
+let bc = 230;
 
-function preload() {
-  //'assets/cat_${i}.jpeg'
-  for (let i = 0; i <= 11; i++) {
-    cats[i] = loadImage("assets/lg_" + i + ".png")
-  }
-}
-
+let wrds;
 
 function setup() {
   cv = createCanvas(500, 500);
-  cv.parent("#canvasDiv");
-  //#=css refrence to id, .=class
-
-  background(242, 194, 48);
-  textSize(12);
-  imageMode(CENTER);
-  frameRate(4);
-  textFont()
-
-  //text("click to find your destiny moment of bumping into someone", 50, 50);
-  textFont('Homemade Apple');
-  text("start your radomizer with writing greetings or reactions.", 50, 50);
-  text("then, cat will answer to you", 50, 80);
-  text("ex) chao, hello, omg, cool!", 50, 110);
-
-  //button = createButton("click to randomize");
-  startRadomizerbutton = select("#rButton");
-  startRadomizerbutton.mousePressed(buttonPressed);
-
-  addMoreButton = select("#addMoreButton");
-  addMoreButton.mousePressed(addAnotherInput);
-
-  for (let i = 0; i < 3; i++) {
-    nameInputs.push(createInput());
-    nameInputs[nameInputs.length - 1].parent("#inputFields");
-  }
-
-
-
-  // setTimeout(changeBackground, 1000);
-  // setInterval(changeBackground, 1000);
-  //function copy and past not
-
-
-
-  // console.log("initial array is");
-  // console.log(names);
-
-  // names.shift();
-  // //pop removes the last thing of the array
-  // console.log("array after shift");
-  // console.log(names);
-  //
-  // names.unshift("greg");
-  // console.log("array after unshift");
-  // console.log(names);
-  // //unshift takes the premeter
-  // //shift and pop: takes away the first one
-  //names.splice(index, number);
-  // names.splice(4, 1);
-  // console.log("array after splice");
-  // console.log(names);
-  //splice to remove on that perticuilar section
-
+  cv.parent("#canvasDiv");  background(0);
+  frameRate(60);
+  intText();
+  fortBall();
+  button = createButton('click here to get your guardian!');
+  button.parent('rButton');
+  button.mousePressed(buttonPressed);
 }
 
 function draw() {
-  //text('click to find your destiny moment of bumping into someone', 45, 200);
+  bg();
 
-  if (animating == true) {
-    clear();
-    //white clean the canvas image before
-    image(cats[imageCounter], width / 2, height / 2);
-
-    if (imageCounter < cats.length - 1) {
-      imageCounter++;
-      console.log(imageCounter);
-    } else {
-      imageCounter = 0;
-    }
-  }
-}
-
-
-// function changeBackground(){
-//   if (counter <= 5){
-//   counter++;
-//   console.log(counter);
-//   background(random(255),random(255), random(255));
-//   setTimeout(changeBackground, 1000);
-// } else {
-//
-// }
-//
-// }
-function addAnotherInput() {
-
-  nameInputs.push(createInput());
-  nameInputs[nameInputs.length - 1].parent("#inputFields");
 
 }
 
-
-function randomizer() {
-  animating = false;
-
-  if (names[0]) {
-
-    //this displays random name and splices it out of array
-    // background(random(240, 150, 238));
-    clear();
-
-    //names random
-    randomIndex = int(random(names.length));
-  
-    textStyle(NORMAL);
-    textFont('Orbitron');
-    textAlign(CENTER, CENTER);
-    // text('${names[randomIndex].name} says...', 180, 150);
-    image(random(cats), width / 2, height / 2);
-    //random image of cats
-
-    text(names[randomIndex].name + " says...", width / 2, height - 50);
-
-
-    //words random
-    textStyle(ITALIC);
-    textFont('Homemade Apple');
-    textAlign(CENTER, CENTER);
-    text(words[randomIndex2], width / 2, height - 25);
-
-    names.splice(randomIndex, 1);
-  } else {
-    background(random(240, 150, 238));
-    text("nothing left!", 50, 50);
-
+function bg (){
+  for (var i = 0; i < clouds.length; i++){
+    clouds[i].move();
   }
-
 }
 
 function buttonPressed() {
+  randomIndex = int(random(names.length));
 
-  if (firstTime == true){
+  // wrds = mood[mr] + ' ' + geo[gr] + ' ' + being[br] + '.';
+  rc = random(255);
+  gc = random(255);
+  bc = random(255);
+  showingText();
+  console.log(wrds);
+}
 
-    for (let i = 0; i < nameInputs.length; i++) {
-      words.push(nameInputs[i].value());
-    }
-    firstTime = false;
-  }
+function fortBall() {
+  fill(rc, gc, bc);
+  ellipse(width*0.5,height*0.5, 100);
+}
 
-  animating = true;
-  setTimeout(randomizer, 2000);
+function fortRect() {
+  fill(rc, gc, bc);
+  rect(width*0.5,height*0.5, 100);
+}
 
+function fortBall2() {
+  fill(rc, gc, bc);
+  ellipse(width*0.5,height*0.5, 50, 150);
+}
 
+function intText() {
+  fill(255);
+  textAlign(CENTER);
+}
+
+function showingText() {
+  background(0);
+  intText();
+  fortBall();
+  fill(255);
+  textAlign(CENTER);
+  text(names[randomIndex].name + " will guard you..", 150, 50);
+  text(names[randomIndex].word, 200, 150);
+
+  // text('You meet a', width*0.5, height*0.7);
+  // text(wrds, width*0.5, height*0.75)
 }
