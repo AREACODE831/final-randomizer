@@ -1,64 +1,43 @@
-//the people you might have been passed and words
+
+//legendary
+//features
 
 let names = [{
-  name: "mojo",
-  //word: "hey"
+  name: "Unicorn",
+  word: "dazzling horse with a spiraling horn"
 }, {
-  name: "shamzi",
-  //word: "love you"
+  name: "Valkyrie",
+  word: "love you"
 }, {
-  name: "Pop Tart",
-  //word: "sweet"
+  name: "Ittan-momen",
+  word: "sentiment roll of cotton that files through the night and suffocates people"
 }, {
-  name: "nabi",
-  //word: "my friend!"
+  name: "Pegasus",
+  word: "winged stallion that helps heroes conquer deadly foes"
 }, {
-  name: "Mari",
-  //word: "super!"
+  name: "European Dragon",
+  word: "super!"
 }, {
-  name: "ash",
-  //word: "wonderful"
+  name: "Chinese Dragon",
+  word: "Long, serpentine creature with elemental powers"
 }, {
-  name: "kiki",
-  //word: "I'm down"
+  name: "Chimera",
+  word: "I'm down"
 }, {
-  name: "Pixie",
-  //word: "you can do it"
+  name: "Phoenix",
+  word: "fire bird that eternally regenerates from its own ashes"
 }, {
-  name: "Bubbles",
-  //word: "wanna go get some coffee?"
+  name: "Airavata",
+  word: "wanna go get some coffee?"
 }, {
-  name: "Goose",
-  //word: "bless you"
+  name: "Santelmo",
+  word: "spiritual presence in the form of a dancing orb of flame"
 }, {
   name: "Lollipop",
-  //word: "chao"
+  word: "chao"
 }];
 
-// let words = [{
-//   word: "hey"
-// }, {
-//   word: "love you"
-// }, {
-//   word: "sweet"
-// }, {
-//   word: "my friend!"
-// }, {
-//   word: "super!"
-// }, {
-//   word: "wonderful"
-// }, {
-//   word: "I'm down"
-// }, {
-//   word: "you can do it"
-// }, {
-//   word: "wanna go get some coffee?"
-// }, {
-//   word: "bless you"
-// }, {
-//   word: "chao"
-// }];
-let words = [];
+
 
 let randomIndex;
 let randomIndex2;
@@ -80,21 +59,21 @@ let firstTime = true;
 
 function preload() {
   //'assets/cat_${i}.jpeg'
-  for (let i = 0; i <= 7; i++) {
-    cats[i] = loadImage("assets/st_" + i + ".png")
+  for (let i = 0; i <= 11; i++) {
+    cats[i] = loadImage("assets/lg_" + i + ".png")
   }
 }
 
 
 function setup() {
-  cv = createCanvas(1000, 1000);
+  cv = createCanvas(500, 500);
   cv.parent("#canvasDiv");
   //#=css refrence to id, .=class
 
   background(242, 194, 48);
   textSize(12);
   imageMode(CENTER);
-  frameRate(8);
+  frameRate(4);
   textFont()
 
   //text("click to find your destiny moment of bumping into someone", 50, 50);
@@ -192,7 +171,7 @@ function randomizer() {
 
     //names random
     randomIndex = int(random(names.length));
-    randomIndex2 = int(random(words.length));
+  
     textStyle(NORMAL);
     textFont('Orbitron');
     textAlign(CENTER, CENTER);
